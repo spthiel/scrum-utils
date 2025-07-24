@@ -1,0 +1,48 @@
+{
+  "name": "scrum",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "npm run --silent build:build && node dist/build.js",
+    "build:build": "esbuild --bundle build/build.ts --external:esbuild --outfile=dist/build.js --platform=node",
+    "build:watch": "esbuild --bundle build/watch.ts --external:esbuild --outfile=dist/watch.js --platform=node",
+    "watch": "nodemon --config nodemon.json src/server/index.ts",
+    "run": "node .",
+    "test": "vitest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@eslint/js": "^9.31.0",
+    "@types/cookie-parser": "^1.4.9",
+    "@types/express": "^5.0.3",
+    "@typescript-eslint/eslint-plugin": "^8.37.0",
+    "@typescript-eslint/parser": "^8.37.0",
+    "esbuild": "^0.25.8",
+    "eslint": "^9.31.0",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "globals": "^16.3.0",
+    "nodemon": "^3.1.10",
+    "prettier": "^3.6.2",
+    "tsx": "^4.20.3",
+    "typescript-eslint": "^8.37.0",
+    "vite-tsconfig-paths": "^5.1.4",
+    "vitest": "^3.2.4"
+  },
+  "dependencies": {
+    "@hotwired/stimulus": "^3.2.2",
+    "@hotwired/turbo": "^8.0.13",
+    "@types/react-dom": "^19.1.6",
+    "@types/ws": "^8.18.1",
+    "cookie-parser": "^1.4.7",
+    "express": "^5.1.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "text-encoding": "^0.7.0",
+    "websocket-express": "^4.0.0",
+    "ws": "^8.18.3"
+  }
+}

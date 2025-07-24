@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "NodeNext",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "paths": {
+      "api:*": [
+        "./src/api/*"
+      ],
+      "client:*": [
+        "./src/client/*"
+      ],
+      "server:*": [
+        "./src/server/*"
+      ],
+      // workaround for: https://github.com/vitest-dev/vitest/issues/4567
+      "rollup/parseAst": [
+        "./node_modules/rollup/dist/parseAst"
+      ]
+    }
+  }
+}
