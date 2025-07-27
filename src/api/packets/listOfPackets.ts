@@ -1,7 +1,8 @@
 import Packet from "api:Packet";
 import IdentityPacket from "api:packets/IdentityPacket";
+import KickPacket from "api:packets/KickPacket";
 
-const packets = [IdentityPacket];
+const packets = [IdentityPacket, KickPacket];
 
 export default {
     packets,

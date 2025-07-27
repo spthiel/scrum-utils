@@ -1,17 +1,16 @@
 import Encoding from "api:Encoding";
 import Packet from "api:Packet";
 
-export default class IdentityPacket extends Packet {
-    private name?: string;
-    private id?: string;
+export default class RoomPacket extends Packet {
+    private room = new Map();
 
     constructor(data?: Uint8Array) {
         super();
         this.construct(data);
     }
 
-    static from(name: string): IdentityPacket {
-        const packet = new IdentityPacket();
+    static from(name: string): RoomPacket {
+        const packet = new RoomPacket();
 
         packet.name = name;
         packet.filled = true;

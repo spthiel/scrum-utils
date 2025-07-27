@@ -6,5 +6,63 @@
     </head>
     <body>
 
+        <div data-controller="resistance">
+            <svg data-resistance-target="svg" font-family="Arial, Helvetica, sans-serif" viewBox="0 0 440 280"
+                 width="440" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <circle cx="0" cy="0" fill="currentColor" fill-opacity="0.2" id="resistancePokerCircle" r="18" stroke="currentColor"/>
+                </defs>
+                <g data-resistance-target="bubbleContainer" font-size="140%" transform="translate(20 180)">
+                    <g color="aqua" data-resistance-target="bubbles" transform="translate(0 0)">
+                        <use href="#resistancePokerCircle"/>
+                        <text dominant-baseline="middle" fill="currentColor" font-weight="bold" text-anchor="middle" x="0" y="0">An</text>
+                    </g>
+                    <g color="salmon" data-resistance-target="bubbles" transform="translate(0 -40)">
+                        <use href="#resistancePokerCircle"/>
+                        <text dominant-baseline="middle" fill="currentColor" font-weight="bold" text-anchor="middle" x="0" y="0">Tr</text>
+                    </g>
+                    <g color="lime" data-resistance-target="bubbles" transform="translate(0 -80)">
+                        <use href="#resistancePokerCircle"/>
+                        <text dominant-baseline="middle" fill="currentColor" font-weight="bold" text-anchor="middle" x="0" y="0">El</text>
+                    </g>
+                    <g color="yellowgreen" data-resistance-target="bubbles" transform="translate(40 0)">
+                        <use href="#resistancePokerCircle"/>
+                        <text dominant-baseline="middle" fill="currentColor" font-weight="bold" text-anchor="middle" x="0" y="0">Su</text>
+                    </g>
+                    <g color="rebeccapurple" data-resistance-target="bubbles" transform="translate(200 0)">
+                        <use href="#resistancePokerCircle"/>
+                        <text dominant-baseline="middle" fill="currentColor" font-weight="bold" text-anchor="middle" x="0" y="0">Ha</text>
+                    </g>
+                </g>
+                <g transform="translate(0 -70)">
+                    <svg height="70" viewBox="0 0 440 70" width="440" x="0" y="100%">
+                        <g transform="translate(20 0)">
+                            <g stroke="black" stroke-width="2">
+                                <line x1="0" x2="400" y1="20" y2="20" />
+                                <line x1="0" x2="0" y1="0" y2="40" />
+                                <line x1="200" x2="200" y1="0" y2="40" />
+                                <line x1="400" x2="400" y1="0" y2="40" />
+                            </g>
+                            <g stroke="black" stroke-width="1">
+                                <line x1="40" x2="40" y1="10" y2="30" />
+                                <line x1="80" x2="80" y1="10" y2="30" />
+                                <line x1="120" x2="120" y1="10" y2="30" />
+                                <line x1="160" x2="160" y1="10" y2="30" />
+                                <g transform="translate(200 0)">
+                                    <line x1="40" x2="40" y1="10" y2="30" />
+                                    <line x1="80" x2="80" y1="10" y2="30" />
+                                    <line x1="120" x2="120" y1="10" y2="30" />
+                                    <line x1="160" x2="160" y1="10" y2="30" />
+                                </g>
+                            </g>
+
+                            <text text-anchor="middle" x="0" y="60">0</text>
+                            <text text-anchor="middle" x="200" y="60">5</text>
+                            <text text-anchor="middle" x="400" y="60">10</text>
+                        </g>
+                    </svg>
+                </g>
+            </svg>
+        </div>
     </body>
 </html>

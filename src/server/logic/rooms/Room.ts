@@ -1,62 +1,26 @@
-import {type ExtendedWebSocket} from "websocket-express";
-
 import Packet from "api:Packet";
-import Packets from "api:Packets";
-import IdentityPacket from "api:packets/IdentityPacket";
 
-interface ClientData {
-    id: string;
-    name: string;
-}
+import Client from "server:logic/sessions/Client";
 
 export default class Room {
-    private admin?: string;
-    private clients = new Map<ExtendedWebSocket, Partial<ClientData>>();
+    private admin?: Client;
+    private clients: Client[] = [];
 
     constructor() {}
 
-    broadcast(packet: Packet, exclude?: ExtendedWebSocket) {
-        for (const socket of this.clients.keys()) {
-            if (socket === exclude) {
-                continue;
-            }
-
-            Packets.send(socket, packet);
+    broadcast(packet: Packet) {
+        for (const client of this.clients) {
+            client.send(packet);
         }
     }
 
-    join(websocket: ExtendedWebSocket) {
-        const first = this.clients.size === 0 && !this.admin;
+    join(client: Client) {
+        if (this.clients.length === 0) {
+            this.admin = client;
+        }
 
-        this.clients.set(websocket, {});
-        websocket.on("message", (message) => {
-            // noinspection SuspiciousTypeOfGuard
-            if (!(message instanceof Uint8Array)) {
-                return;
-            }
-
-            const packet = Packets.receive(message);
-
-            if (!packet.isPresent()) {
-                return;
-            }
-
-            const paketData = packet.get();
-
-            if (paketData instanceof IdentityPacket) {
-                const data = this.clients.get(websocket)!;
-                data.id = paketData.getId()!;
-                data.name = paketData.getName()!;
-
-                if (first) {
-                    this.admin = data.id;
-                    console.log(`Made ${data.id}:${data.name} admin of a room.`);
-                }
-            }
-        });
-
-        websocket.on("close", () => {
-            this.clients.delete(websocket);
+        client.connectionListener.addListener((connected) => {
+            // TODO: Set disconnect listener
         });
     }
 }
